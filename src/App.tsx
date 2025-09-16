@@ -5,6 +5,12 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [showHello, setShowHello] = useState(false)
+
+  const handleClick = () => {
+    setCount((count) => count + 1)
+    setShowHello((prev) => !prev)
+  }
 
   return (
     <>
@@ -17,10 +23,16 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <h2>Hector</h2>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={handleClick}>
           count is {count}
         </button>
+        {showHello && (
+          <div style={{ marginTop: '1em', fontWeight: 'bold' }}>
+            Hola Mundo, me llamo Hector
+          </div>
+        )}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
